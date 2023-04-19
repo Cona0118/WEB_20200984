@@ -6,24 +6,31 @@ addEventListener : 이벤트 등록
 click : 클릭(이벤트)
 search_message : 함수
 */
-let F_word1 = "fuck";
-let F_word2 = "시발";
-let F_word3 = "개새끼";
+// let F_word1 = "비속어1";
+// let F_word2 = "비속어2";
+// let F_word3 = "비속어3";
+let F_word = ["비속어1", "비속어2", "비속어3"];
+var search_array = []; // 빈 배열 - 전역 변수
 
 function search_message(){
 	let search_str = document.querySelector("#search_txt"); // 변수에 저장
 		if(search_str.value.length === 0){ // 문자 길이, 엄격한 비교 / === -> 값 + 자료형 비교
 			alert("검색어가 비었습니다. 입력해주세요");
 		}
-		else{
-			if(search_str.value === F_word1,F_word2,F_word3){
-			alert(search_str.value+"은(는) 검색할 수 없습니다.");
+		else{			// || == or
+			// if(search_str.value === F_word1 || search_str.value === F_word2 || search_str.value === F_word3){
+			// alert(search_str.value+"은(는) 검색할 수 없습니다.");
+			// }
+			if(F_word.includes(search_str.value)){
+				alert(search_str.value+"은(는) 검색할 수 없습니다.");
 			}
 			else{
-			alert("검색을 수행합니다!");
-			let text = document.getElementById("search_message").innerHTML = search_str.value;
-			document.querySelector("#form_main").submit();
-			document.getElementById("search_message").innerHTML = search_str.value; // 태그에 값 추가
+				alert("검색을 수행합니다!");
+				search_array.push(search_str.value); // 배열에 검색어 추가
+				let text = document.getElementById("search_message").innerHTML = search_array.toString(); //값 변환
+				
+				document.querySelector("#form_main").submit();
+				// document.getElementById("search_message").innerHTML = search_str.value; // 태그에 값 추가
 			}
 		}
 	console.log(search_str.value); // 콘솔에 출력
