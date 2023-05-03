@@ -6,21 +6,26 @@ function login(){
     form.action = "../index_login.html";
     form.method = "get";
 	
-	let id_test = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{10,}$/.test(id);
-	let pass_test = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/.test(password);
-    
-	if(id_test == false || pass_test == false){
-		alert(id_test+pass_test);
+	var id_check = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/; 
+	var pass_check = /^(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/;
+	
+	var id_result = id_check.test(id.value);
+	var pass_result = pass_check.test(password.value);
+	
+	if(id.value.length === 0 || password.value.length === 0){
+        alert("이메일와 비밀번호를 모두 입력해주세요.");
+    }
+	else if (id_result == false){
+		alert("유효하지 않은 이메일입니다.")
+	}
+	else if (pass_result == false){
+		alert("숫자, 특수문자가 각각 1개 이상 포함된 8자리 이상의 비밀번호를 입력해주세요.")
 	}
 	else{
-    	if(id.value.length === 0 || password.value.length === 0){
-        	alert("아이디와 비밀번호를 모두 입력해주세요.");
-    	}
-		else{
-        	form.submit();
-	}
+		form.submit();
 	}
 }
+
 
 function get_id(){
     var getParameters = function(paramName){ // 변수 = 함수(이름)
@@ -38,5 +43,4 @@ function get_id(){
 } // 함수 끝
 alert(getParameters('id') + '님 반갑습니다!'); // 메시지 창 출력
 }
-
 
