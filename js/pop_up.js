@@ -1,7 +1,7 @@
 function pop_up() {
 	var cookieCheck = getCookie("popupYN");
         if (cookieCheck != "N"){
-        window.open("../pop_up/pop_up.html", "팝업테스트", "width=800, height=350, top=10, left=10");
+        window.open("pop_up.html", "팝업테스트", "width=800, height=350, top=10, left=10");
         }
 } // ../ -> 한단계 상위폴더(상대경로)
 

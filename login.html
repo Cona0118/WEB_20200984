@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 		<script type="text/javascript" src="js/login.js" defer></script>
     </head>
-    <body class="text-center">
+    <body class="text-center" onload="init();">
 		<br><br><br>
         <div class="mx-auto" style="width: 450px;">
             <a href="index.html" target="_self"><img src="img/googlelogo_color_big.png" style="width:450px; height:200px;" class="img-fluid" alt="구글이미지" ></a>
@@ -30,7 +30,7 @@
         </div>
         <div class="checkbox mb-3">
           <label>
-            <input type="checkbox" value="remember-me"> 이메일 기억하기
+            <input type="checkbox" value="remember-me" id="idSaveCheck">  이메일 기억하기
           </label>
         </div>
 			<button class="w-100 btn btn-lg btn-primary" onclick="login()" type="button">로그인하기</button>
