@@ -52,7 +52,7 @@ function get_id(){
 		    }
 	    } // 2중 for문 끝
 } // 함수 끝
-alert(getParameters('id') + '님 반갑습니다!'); // 메시지 창 출력
+ alert(getParameters('id') + '님 반갑습니다!'); // 메시지 창 출력
 }
 
 
@@ -94,3 +94,37 @@ function init(){ // 로그인 폼에 쿠키에서 가져온 아이디 입력
     check.checked = true; 
     }
 }
+
+
+ function getLoginCookie(name) {
+      var LoginCookie = document.cookie;
+      console.log("쿠키를 요청합니다!");
+      if (LoginCookie != "") {
+        var cookie_array = LoginCookie.split("; ");
+        for (var index in cookie_array) {
+          var cookie_name = cookie_array[index].split("=");
+
+          if (cookie_name[0] == name) {
+            return cookie_name[1];
+          }
+        }
+      }
+      return;
+    }
+
+
+
+function login_count(){
+ 	 var cookieValue = parseInt(getLoginCookie("login_count"));
+
+	// 값이 NaN인 경우 초기화 
+	if (isNaN(cookieValue)) {
+		deleteCookie("login_count")
+		setCookie("login_count",1, 1);
+	}
+	else{
+		deleteCookie("login_count")
+		setCookie("login_count", cookieValue+1, 1);
+	}
+}
+
