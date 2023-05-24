@@ -57,7 +57,12 @@ function logout(){
 
 function autologout(){
 	console.log("자동 로그아웃 카운트 시작");
-	setTimeout(logout,30000);
+	setTimeout(logout,30000); // 30초
+}
+
+function auto_count_reset(){
+	console.log("카운트 시작");
+	setTimeout(reset_login_count,10000); // 10초
 }
 
 function get_id() { /*
@@ -103,12 +108,15 @@ function login_count() {
     var cookieValue = parseInt(getLoginCookie("login_count"));
     // 값이 NaN인 경우 초기화
     if (isNaN(cookieValue)) {
-        deleteCookie("login_count")
         setCookie("login_count", 1, 1);
     } else {
-        deleteCookie("login_count")
+        deleteCookie("login_count");
         setCookie("login_count", cookieValue + 1, 1);
     }
+}
+
+function reset_login_count(){
+	deleteCookie("login_count");
 }
 
 function logout_count() {
