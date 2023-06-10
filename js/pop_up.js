@@ -25,6 +25,11 @@ function showclock(){
 	if (currentDate.getMinutes()>58) { //정각 1분전 빨강색 출력
 		divClock.style.color="red";
 	}
+	// 남은 시간 계산
+	//let remainingTime = 8 - currentDate.getSeconds();
+	//let remainingMsg = "남은 시간은 " + remainingTime.toString() + "초 입니다.";
+	//document.getElementById('Time').innerText = remainingMsg;
+
 	setTimeout(showclock,1000); // ★ 1초마다 갱신
 }
 

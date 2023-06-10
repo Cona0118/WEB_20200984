@@ -57,31 +57,20 @@ function logout(){
 
 function autologout(){
 	console.log("자동 로그아웃 카운트 시작");
-	setTimeout(logout,30000); // 30초
+	setTimeout(logout,10000); // 10초
 }
 
 function auto_count_reset(){
-	console.log("카운트 시작");
+	console.log("카운터 리셋 카운트 시작");
 	setTimeout(reset_login_count,10000); // 10초
 }
 
-function get_id() { /*
-        var getParameters = function(paramName){ // 변수 = 함수(이름)
-        var returnValue; // 리턴값을 위한 변수 선언
-        var url = location.href; // 현재 접속 중인 주소 정보 저장
-        var parameters = (url.slice(url.indexOf('?') + 1, url.length)).split('%'); // ?기준 slice 한 후 split 으로 나눔
-            for(var i = 0; i < parameters.length; i++) {
-    var varName = parameters[i].split('=')[0];
-                if (varName.toUpperCase() == paramName.toUpperCase()) {
-                    returnValue = parameters[i].split('=')[1];
-                    return decodeURIComponent(returnValue);
-                // 나누어진 값의 비교를 통해 paramName 으로 요청된 데이터의 값만 return
-    }
-    } // 2중 for문 끝
-    } // 함수 끝
-    if ( getParameters('id') != undefined){
-    alert(getParameters('id') + '님 반갑습니다!'); // 메시지 창 출력
-    } */
+function reset_login_count(){
+	deleteCookie("login_count");
+}
+
+
+function get_id() {
     if (true) {
         decrypt_text();
     } else {
@@ -113,10 +102,6 @@ function login_count() {
         deleteCookie("login_count");
         setCookie("login_count", cookieValue + 1, 1);
     }
-}
-
-function reset_login_count(){
-	deleteCookie("login_count");
 }
 
 function logout_count() {
